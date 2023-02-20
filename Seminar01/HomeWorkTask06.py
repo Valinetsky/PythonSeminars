@@ -35,7 +35,7 @@ def getSum(n):
 
 flag = True
 while flag:
-    number = inputCheck('Введите шестизначноезначное число: ')
+    number = inputCheck('Введите шестизначное число: ')
     if number <= 999999:
         flag = False
 
