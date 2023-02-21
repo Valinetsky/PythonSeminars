@@ -9,15 +9,14 @@
 
 from math import sqrt
 
+
 # Функция ввода целого неотрицательного числа,
 # с аргументом текстового приглашения
-
-
 def inputCheck(message):
     flag = True
     while flag:
         arg = input(message)
-        if arg.isdigit() and (int(arg) > 0 and int(arg) < 1000):
+        if arg.isdigit() and (int(arg) > 0 and int(arg) <= 1000):
             arg = int(arg)
             flag = False
         if flag:
@@ -31,24 +30,25 @@ def calculate(b, c):
     if D > 0:
         sq = sqrt(D) / 2
         p = b/2
-        return p + sq
+        x1 = p-sq
+        x2 = p+sq
+        return [x1, x2]
 
     if D == 0:
-        return b/2
+        return [b/2, b/2]
 
-    return -1
+    return [-1, -1]
 
 
 numbersSum = inputCheck('Введите сумму чисел: ')
 numbersMul = inputCheck('Введите произведение чисел: ')
 
-numberOne = calculate(numbersSum, numbersMul)
-numberTwo = numbersSum - numberOne
+secret = calculate(numbersSum, numbersMul)
+# numberTwo = numbersSum - numberOne
 
-if numberOne < 0 or numberTwo < 0:
-    print('Нет таких натуральных чисел')
-
-if numberOne > 0 and numberTwo > 0:
+if secret[0] != int(secret[0]) or secret[0] == -1:
+    print('Нет таких целых положительных чисел')
+else:
     print()
-    print(f'Загаданные числа: {int(numberOne)}, {int(numberTwo)}')
+    print(f'Загаданные числа: {[int(num) for num in secret]}')
     print()
