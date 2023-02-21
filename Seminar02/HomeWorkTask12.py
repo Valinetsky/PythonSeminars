@@ -25,35 +25,30 @@ def inputCheck(message):
     return arg
 
 
+# Функция расчета дискриминанта
 def calculate(b, c):
-    D = b * b - 4 * c  # считаем дискриминант
-    if D > 0:  # если дискриминанат > 0 - два корня
-        sq = sqrt(D)/2
+    D = b * b - 4 * c
+    if D > 0:
+        sq = sqrt(D) / 2
         p = b/2
-        x1 = p-sq
-        x2 = p+sq
-
-        print(x1)
-        print(x2)
-
-        return x1 if x1 >= 0 else x2
+        return p + sq
 
     if D == 0:
         return b/2
 
-    if D < 0:
-        return -1
+    return -1
 
 
 numbersSum = inputCheck('Введите сумму чисел: ')
 numbersMul = inputCheck('Введите произведение чисел: ')
 
-
 numberOne = calculate(numbersSum, numbersMul)
+numberTwo = numbersSum - numberOne
 
+if numberOne < 0 or numberTwo < 0:
+    print('Нет таких натуральных чисел')
 
-print()
-print(f'Первое число: {numberOne}')
-print()
-print(f'Второе число: {numbersSum - numberOne}')
-print()
+if numberOne > 0 and numberTwo > 0:
+    print()
+    print(f'Загаданные числа: {int(numberOne)}, {int(numberTwo)}')
+    print()
