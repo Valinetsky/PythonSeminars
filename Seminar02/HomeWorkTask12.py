@@ -31,9 +31,9 @@ def calculate(b, c):
 
     if D >= 0:
         sq = sqrt(D) / 2
-        p = b/2
-        x1 = p-sq
-        x2 = p+sq
+        p = b / 2
+        x1 = p - sq
+        x2 = p + sq
         return [x1, x2]
 
     return [-1, -1]
