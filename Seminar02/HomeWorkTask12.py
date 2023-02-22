@@ -26,25 +26,23 @@ def inputCheck(message):
 
 # Функция расчета дискриминанта
 def calculate(b, c):
+
     D = b * b - 4 * c
-    if D > 0:
+
+    if D >= 0:
         sq = sqrt(D) / 2
         p = b/2
         x1 = p-sq
         x2 = p+sq
         return [x1, x2]
 
-    if D == 0:
-        return [b/2, b/2]
-
     return [-1, -1]
 
 
-numbersSum = inputCheck('Введите сумму чисел: ')
-numbersMul = inputCheck('Введите произведение чисел: ')
+numbersSum = inputCheck('Введите сумму чисел (n > 0): ')
+numbersMul = inputCheck('Введите произведение чисел (n > 0): ')
 
 secret = calculate(numbersSum, numbersMul)
-# numberTwo = numbersSum - numberOne
 
 if secret[0] != int(secret[0]) or secret[0] == -1:
     print('Нет таких целых положительных чисел')

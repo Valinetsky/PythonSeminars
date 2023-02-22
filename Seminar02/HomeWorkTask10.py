@@ -17,5 +17,6 @@ countHead = array.count(head)
 print()
 print(array)
 print()
-print(f'Монет, которые нужно перевернуть: {min(countHead, len(array) - countHead)}')
+print(
+    f'Монет, которые нужно перевернуть: {min(countHead, len(array) - countHead)}')
 print()
