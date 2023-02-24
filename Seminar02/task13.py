@@ -1,4 +1,4 @@
-# Задача No13. 
+# Задача No13.
 # Уставшие от необычно теплой зимы, жители решили узнать,
 # действительно ли это самая длинная оттепель за всю историю
 # наблюдений за погодой. Они обратились к синоптикам, а те, в
@@ -18,7 +18,7 @@
 # Output: 2
 
 
-# Функция ввода целого неотрицательного числа,
+# Функция ввода целого числа со знаком,
 # с аргументом текстового приглашения
 def inputCheck(message, min, max):
     flag = True
@@ -30,14 +30,15 @@ def inputCheck(message, min, max):
                 flag = False
         if flag:
             print('Failed to recognize the number')
-    
+
     return arg
 
 
 sizeMin = 1
 sizeMax = 100
 
-size = inputCheck(f'Введите количество дней (от {sizeMin} до {sizeMax}): ', sizeMin, sizeMax)
+size = inputCheck(
+    f'Введите количество дней (от {sizeMin} до {sizeMax}): ', sizeMin, sizeMax)
 
 
 tempMin = -50
@@ -51,7 +52,8 @@ countMax = 0
 arrayTemp = []
 
 for i in range(size):
-    number = inputCheck(f'День {i + 1}. Введите температуру (от {tempMin}˚C до {tempMax}˚C): ', tempMin, tempMax)
+    number = inputCheck(
+        f'День {i + 1}. Введите температуру (от {tempMin}˚C до {tempMax}˚C): ', tempMin, tempMax)
     if number > limit:
         count += 1
         if countMax < count:
@@ -63,5 +65,6 @@ for i in range(size):
 print()
 print(f'Массив температур: {arrayTemp}')
 print()
-print(f'Максимум дней подряд, когда температура была выше {limit}˚C: {countMax}')
+print(
+    f'Максимум дней подряд, когда температура была выше {limit}˚C: {countMax}')
 print()
