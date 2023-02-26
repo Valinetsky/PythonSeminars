@@ -23,6 +23,7 @@ def inputCheck(message):
 
 
 lst = [1, 2, 3, 4, 5]
+print('Исходный массив')
 print(lst)
 
 shift = inputCheck('Введите размер сдвига списка: ')

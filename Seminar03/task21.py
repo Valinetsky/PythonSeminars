@@ -16,8 +16,9 @@ print(dict)
 uniqList = set()
 
 for x in dict:
-    print(x.values())
-    if x.values() not in uniqList:
-        uniqList.add(x.values())
+    local = x.values()
+    for element in local:
+        element = element.strip()
+        uniqList.add(element)
 
 print(uniqList)
