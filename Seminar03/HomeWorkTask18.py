@@ -62,7 +62,7 @@ def minimumDifferenceNumberInList(arr, number):
 
 
 # Входящий список
-arr = [12, 0, -1, 1, 1, 2, -4, 51, 51, 51, 12]
+arr = [12, 0, -1, 1, 1, 2, -4, 51, 51, 51, 12, 10]
 
 # arr = []
 

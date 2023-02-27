@@ -40,6 +40,10 @@ def inputCheck(message):
 
 # Функция подсчета вхождений числа в список
 def countNumberInList(list, number):
+    # Или просто:
+    print(f'Oneliner result: {list.count(number)}')
+
+    # Или в цикле
     counter = 0
     for element in list:
         if element == number:
