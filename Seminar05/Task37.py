@@ -31,34 +31,20 @@ print(''.join(map(lambda x: x+' ', input().split()[::-1])))
 # var = var.split()[::-1]
 # print(var)
 # print(type(var))
-# показывает, что тип var - list, а объявлять массивы - запрещено
-
-sequence = input()
-print(f'Длина последовательности: {len(sequence)}')
-new_sequence = ''.join(map(lambda x: x+' ', sequence.split()[::-1]))
-print(f'Новая последовательность: {new_sequence}')
-print(f'Длина новой последовательности: {len(new_sequence)}')
-print('Размеры последовательностей - не совпадают!')
-print()
-new_sequence_strip = new_sequence.strip()
-print(f'Новая последовательность: {new_sequence_strip}')
-print(f'Длина сверхновой последовательности: {len(new_sequence_strip)}')
-print('Размеры последовательностей теперь, УРА!, совпадают!!!')
-print()
-
-ecneuqes = ''.join(map(lambda x: x+' ', sequence.split()[::-1])).strip()
-print(
-    "Итоговый oneliner, на разрыв мозга: ''.join(map(lambda x: x+' ', sequence.split()[::-1])).strip()")
-print(f'Новая последовательность: {ecneuqes}')
-print(f'Длина сверхновой последовательности: {len(ecneuqes)}')
+# показывает, что тип var - list, а объявлять массивы - запрещено.
+# Но - красиво
 
 
+# Функция ввода последовательности, и вывода ее в обратном порядке
 def seq(number):
-	counter = 0
     n = int(input())
-    if counter != number:
-        seq()
+    if number <= 1:
         print(n)
     else:
+        number -= 1
+        seq(number)
         print(n)
 
+
+number = int(input('Рекурсивный вывод. Введите размер последовательности: '))
+seq(number)
