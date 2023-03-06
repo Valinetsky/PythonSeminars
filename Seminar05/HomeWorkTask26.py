@@ -41,6 +41,13 @@ def StepsSign(a, b):
 
 # -------------------- ПОЕХАЛИ!!! ------------------
 a = inputCheck('Введите число А: ')
-b = inputCheck('Введите число Б: ')
+
+flag = True
+while flag:
+    b = inputCheck('Введите число Б: ')
+    if a != 0 or b >= 0:
+        flag = False
+    if b < 0 and a == 0:
+        print(f'Выражение {a} в степени {b}: не имеет смысла')
 
 print(f'Число {a} в степени {b}: {StepsSign(a, b)}')
