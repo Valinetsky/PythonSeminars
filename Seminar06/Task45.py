@@ -20,17 +20,23 @@ def frindsNumber(number):
     base = 1
     array = []
     while base <= number / 2:
-        print(base)
         if number % base == 0:
             array.append(base)
         base += 1
-    print(array)
+    # print(f'{number}, делители: {array}, сумма: {sum(array)}')
     return sum(array)
 
 
 # number = int(input())
-count = 300
-for i in range(1, count + 1):
-    for j in range(i + 1, count + 1):
-        if frindsNumber(i) == j:
-            print(f'Пара дружественных чисел: {i}, {j}')
+count = 20000
+unic_array = []
+while count > 1:
+    local_number = frindsNumber(count)
+    second_number = frindsNumber(local_number)
+    if second_number == count and count != local_number and (count not in unic_array) and (local_number not in unic_array) and (local_number < count):
+        print(f'Пара дружественных чисел: {count}, {local_number}')
+        print()
+    unic_array.append(count)
+    
+    count -= 1
+    
