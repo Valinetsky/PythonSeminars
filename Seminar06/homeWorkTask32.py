@@ -34,7 +34,7 @@ if min_number > max_number:
 
 result_array = []
 
-for element in array:
+for count, element in enumerate(array):
     if min_number <= element <= max_number:
-        result_array.append(element)
+        result_array.append((count, element))
 print(result_array)
