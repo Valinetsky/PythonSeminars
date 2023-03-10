@@ -23,11 +23,14 @@ def inputCheck(message):
     return arg
 
 
-
 array = [-5, 9, 0, 3, -1, -2, 1, 4, -2, 10, 2, 0, -9, 8, 10, -9, 0, -5, -5, 7]
 
 min_number = inputCheck('Введите нижнюю границу диапазона: ')
 max_number = inputCheck('Введите верхнюю границу диапазона: ')
+
+if min_number > max_number:
+    min_number, max_number = max_number, min_number
+    print('Скорректированы значения диапазона')
 
 result_array = []
 
