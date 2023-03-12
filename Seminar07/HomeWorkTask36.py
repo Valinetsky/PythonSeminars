@@ -26,10 +26,14 @@ def print_operation_table(operation, num_rows=6, num_columns=6):
             result.append(str(operation(i, j)))
         print(''.join(f'{e:<4}' for e in result))
 
-
+print('x + y')
 print_operation_table(lambda x, y: x + y)
 print()
+
+print('x - y')
 print_operation_table(lambda x, y: x - y)
 print()
+
+print('x * y')
 print_operation_table(lambda x, y: x * y)
 print()
