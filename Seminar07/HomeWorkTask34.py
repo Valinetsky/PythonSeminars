@@ -17,13 +17,12 @@ winnie_string = 'пара-ра-рам рам-пам-папам па-ра-па-д
 
 # Функция пробега по фразе, с подсчетом гласных в словах
 def param_param(winnie_string):
-    local_string = winnie_string.lower().split()
 
     # Функция подсчета гласных в слове
+    def symbol_count(word):
+        return sum(1 for i in word if i in 'аеёиоуыэюя')
 
-    def symbol_count(x):
-        return sum(1 for i in x if i in 'аеёиоуыэюя')
-
+    local_string = winnie_string.lower().split()
     first_word = symbol_count(local_string[0])
 
     if all([symbol_count(element) == first_word for element in local_string]):
