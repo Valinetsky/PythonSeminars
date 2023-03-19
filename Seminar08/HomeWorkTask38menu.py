@@ -27,11 +27,11 @@ filename = 'phonebook.txt'
 datafile = open(filename, 'a+')
 datafile.close
 
-book_name = 'Bilbo'
-with open(filename, 'a+') as datafile:
-    datafile.write(book_name)
-with open(filename, 'a+') as datafile:
-    datafile.write(book_name)
+# book_name = 'Bilbo'
+# with open(filename, 'a+') as datafile:
+#     datafile.write(book_name)
+# with open(filename, 'a+') as datafile:
+#     datafile.write(book_name)
 
 
 def get_operation():
@@ -48,12 +48,28 @@ def get_operation():
         if operation in range(1,5):
             return operation
 
+# Функции вызова меню
+def run_menu(number):
+    if number == 1:
+        menu_1()
+    if number == 2:
+        menu_2()
+    if number == 3:
+        menu_3()
+    if number == 4:
+        menu_4()
+    
+    if number < 1 or number > 4:
+        print('Не бывает, но - ОШИБКА')
+        return -1
 
+
+# Функции меню
 def menu_1():
     myfile = open(filename, "r+") 
     filecontents = myfile.read() 
     if len(filecontents) == 0: 
-        print( "There is no contact in the phonebook.") 
+        print('Телефонная книга пока пуста') 
     else: 
         print(filecontents) 
     myfile.close
@@ -77,12 +93,11 @@ def newcontact():
     
     phoneNum = input('введите номер телефона: ') 
     
-    contactDetails =("[" + lastname + " " + firstname + ", " + patronymic + ", " + phoneNum +  "]\n")
-
+    contactDetails =("[" + lastname + " " + firstname + " " + patronymic + ", " + phoneNum +  "]\n")
 
     myfile = open(filename, "a") 
     myfile.write(contactDetails) 
-    print("Новая запись:\n " + contactDetails + "\nдобавлена в телефонную книгу!")
+    print('Новая запись:\n ' + contactDetails + '\nдобавлена в телефонную книгу!')
 
 
 # Функция вводв имени 
@@ -91,7 +106,6 @@ def input_name(message):
     remfname = name[1:]
     firstchar = name[0]
     return firstchar.upper() + remfname
-
 
 
 # Функция поиска записи        
@@ -106,17 +120,22 @@ def searchcontact():
     found = False 
     for line in filecontents: 
         if searchname in line: 
-            print("Your Required Contact Record is:", end = " ") 
+            print('Найдена запись:', end = ' ') 
             print(line) 
             found = True 
             break 
     if found == False: 
-        print( "Такой записи в телефонной книге не обнаружено", searchname) 
+        print('Такой записи в телефонной книге не обнаружено: ', searchname) 
 
 
 
-# get_operation()
-print(get_operation())
+# Главный цикл
+run_flag = True
+while run_flag:
+    menu_status = get_operation()
+    if menu_status == 4:
+        run_flag = False
+    run_menu(menu_status)
 
 
 
