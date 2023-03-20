@@ -18,9 +18,17 @@
 # 4. Использование функций. Ваша программа
 # не должна быть линейной
 
-import HomeWorkTask38menu
+from HomeWorkTask38user import *
+from HomeWorkTask38menu import *
 
-def main():
-    operation = HomeWorkTask38menu.get_operation(message)
-    if operation == 1:
-        
+filename = 'phonebook.txt'
+datafile = open(filename, 'a+')
+datafile.close
+
+# Главный цикл
+run_flag = True
+while run_flag:
+    menu_status = get_operation()
+    if menu_status == 4:
+        run_flag = False
+    run_menu(menu_status, filename)
